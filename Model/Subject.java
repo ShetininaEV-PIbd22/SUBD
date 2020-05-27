@@ -1,14 +1,24 @@
-package subd.Model;
+package com.company.Model;
 
+import javax.persistence.*;
+import java.util.List;
 
 public class Subject {
-	private int id;
-	private String name;
-	private int specialtyId;
-	
-	public String toString() {
-		String result="";
-		result="Subject: "+this.id+", "+this.name+", "+this.specialtyId;
-		return result;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
+    private String name;
+    @OneToMany
+    private List<Exam> exams;
+    @ManyToOne
+    private Specialty specialty;
+    public void Constructor(int id, String name, int spec_id){
+        this.id=id;
+        this.name=name;
+        this.specialty.id=spec_id;
+    }
+    @Override
+    public String toString() {
+        return  id + ", " + name + ", ";
+    }
 }

@@ -1,28 +1,35 @@
-package subd.Model;
+package com.company.Model;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Vector;
-
-import javax.swing.table.DefaultTableModel;
+import javax.persistence.*;
 
 public class Student {
-	private int id;
-	private String familia;
-	private String name;
-	private String otchestvo;
-	private int number_pasport;
-	private String phone_number;
-	private String email;
-	private int specialtyId;
-	
-	public String toString() {
-		String result="";
-		result="Student: "+this.id+", "+this.familia+", "+this.name+", "+this.otchestvo+", "+this.number_pasport+", "+
-		this.phone_number+", "+this.email+", "+this.specialtyId;
-		return result;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String familia;
+    private String name;
+    private String otchestvo;
+    private Integer number_pasport;
+    private String phone_number;
+    private String email;
+
+    @ManyToOne
+    private Specialty specialty;
+
+    public void Constructor(int id, String f, String n, String o, int pasport,String phone, String email, int spec_id){
+        this.id=id;
+        this.familia = f;
+        this.name = n;
+        this.otchestvo=o;
+        this.number_pasport = pasport;
+        this.phone_number = phone;
+        this.email=email;
+        this.specialty.id=spec_id;
+    }
+    public String toString() {
+        return id + ", " + familia + ", "
+                + name + ", " + otchestvo + ", " +
+                number_pasport + ", " + phone_number + ", " +
+                email + ", ";
+    }
 }
