@@ -15,7 +15,8 @@ public class Exam {
     private Subject subject;
     @OneToOne
     private Teacher teacher;
-    public void Constructor(int id, Date db, Date de, int subject_id, int clas_id, int teacher_id){
+
+    public Exam(int id, Date db, Date de, int subject_id, int clas_id, int teacher_id){
         this.id=id;
         this.dateBegin=db;
         this.dateEnd=de;
@@ -25,6 +26,38 @@ public class Exam {
     }
     @Override
     public String toString() {
-        return  id + ", " + dateBegin + ", " + dateEnd + ", " ;
+        return  id + ", " + dateBegin + ", " + dateEnd + ", "+subject.id+", "+clas.id+", "+teacher.id+"\n" ;
+    }
+
+    public Date getDateBegin(){
+        return dateBegin;
+    }
+    public Date getDateEnd(){
+        return dateEnd;
+    }
+    public int getSubjectId(){
+        return  subject.id;
+    }
+    public int getClassId(){
+        return clas.id;
+    }
+    public int getTeacherId(){
+        return teacher.id;
+    }
+
+    public void setDateBegin(Date dateBegin){
+        this.dateBegin=dateBegin;
+    }
+    public void setDateEnd(Date dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+    public void setSubjectId(Subject sub){
+        this.subject=sub;
+    }
+    public void setClas(Clas clas){
+        this.clas=clas;
+    }
+    public void setTeacher(Teacher teacher){
+        this.teacher=teacher;
     }
 }

@@ -16,7 +16,7 @@ public class Student {
     @ManyToOne
     private Specialty specialty;
 
-    public void Constructor(int id, String f, String n, String o, int pasport,String phone, String email, int spec_id){
+    public Student (int id, String f, String n, String o, int pasport,String phone, String email, int spec_id){
         this.id=id;
         this.familia = f;
         this.name = n;
@@ -30,6 +30,38 @@ public class Student {
         return id + ", " + familia + ", "
                 + name + ", " + otchestvo + ", " +
                 number_pasport + ", " + phone_number + ", " +
-                email + ", ";
+                email +"\n";
     }
+    public String getFamilia(){
+        return familia;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getOtchestvo(){
+        return otchestvo;
+    }
+    public String getPhone_number(){
+        return  phone_number;
+    }
+    public String getEmail(){return  email;}
+    public int getNumberPasport(){return  number_pasport;}
+    public Specialty getSpecialty(){return  specialty;}
+
+    public void setFamilia(String f){
+        this.familia=f;
+    }
+    public void setName(String n){
+        this.name=n;
+    }
+    public void setOtchestvo(String o){
+        this.otchestvo=o;
+    }
+    public void setPhone_number(String pn){
+        this.phone_number=pn;
+    }
+    public void setEmail(String email){this.email=email;}
+    public void setNumberPasport(int np){this.number_pasport=np;}
+    public void setSpecialty(Specialty sp){this.specialty=sp;}
+
 }
